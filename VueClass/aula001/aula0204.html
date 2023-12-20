@@ -4,19 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../vue.js"></script>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>V-Biden</title>
 </head>
 <body>
     <div id="app">
         <a v-bind:href="link" target="_blank">Link do Google</a><br>
-        <a href="">{{cor}}</a>
+        <a :class="cor">{{cor}}</a>
+        <p :class="comprou ? liberar : noaliberar">O cliente comprou?</p>
     </div>
     <script>
         const vm = new Vue({
             el: "#app",
             data: {
                 link:"https://www.google.com",
-                cor: "azul"
+                cor: "azul",
+                liberar: "verde",
+                noaliberar: "vermelho",
+                comprou: true
             }
         })
     </script>
