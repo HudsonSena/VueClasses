@@ -9,11 +9,19 @@
 <body>
     <div id="app">
         <button @click="contador++">Clique Aqui</button>
+
         {{contador}}
+
         <button @click="ativo = !ativo">Toggle</button>
+
         {{ativo}}
+
         <p v-if="ativo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dolor illum maxime libero praesentium nulla necessitatibus ab sed rem culpa, ipsa illo quis cumque officiis similique obcaecati corporis reprehenderit consequatur.</p>
+
         <a href="#interno" @click.prevent="handleClick">Link Interno</a>
+
+        <input type="text" @keyup.enter="handleClick">
+        <p @mousemove="handleMove">Esse é o mouse em x: {{mouse.x}}</p>
     </div>
     <script>
         const vm = new Vue({
@@ -21,10 +29,14 @@
             data: {
                 contador: 0,
                 ativo: true,
+                mouse: ""
             },
             methods: {
                 handleClick(event) {
-                    console.log(event);
+                    console.log(event.key);
+                },
+                handleMove(event) {
+                    this.mouse = event;
                 }
             }
         })
