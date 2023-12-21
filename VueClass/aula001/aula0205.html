@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>V-On ou @</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="contador++">Clique Aqui</button>
+        {{contador}}
+        <button @click="ativo = !ativo">Toggle</button>
+        {{ativo}}
+        <p v-if="ativo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dolor illum maxime libero praesentium nulla necessitatibus ab sed rem culpa, ipsa illo quis cumque officiis similique obcaecati corporis reprehenderit consequatur.</p>
+        <a href="#interno" @click.prevent="handleClick">Link Interno</a>
+    </div>
+    <script>
+        const vm = new Vue({
+            el:"#app",
+            data: {
+                contador: 0,
+                ativo: true,
+            },
+            methods: {
+                handleClick(event) {
+                    console.log(event);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
