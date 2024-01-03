@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>aula 0206ex v-if</title>
+</head>
+<body>
+    <div id="app">
+        <p>Banana : {{estoqueBanana}}</p>
+        <button v-show="estoqueBanana >= 1" @click="adicionarItem">+</button>
+        <button v-show="estoqueBanana <= 6" @click="removerItem">-</button>
+        <p>Carrinho: {{carrinho}}</p>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                estoqueBanana: 7,
+                carrinho: 0,
+            },
+            methods: {
+                adicionarItem() {
+                    this.carrinho++;
+                    this.estoqueBanana--;
+                },
+                removerItem() {
+                    this.carrinho--;
+                    this.estoqueBanana++;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
