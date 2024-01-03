@@ -9,9 +9,10 @@
 <body>
     <div id="app">
         <p>Banana : {{estoqueBanana}}</p>
-        <button v-show="estoqueBanana >= 1" @click="adicionarItem">+</button>
-        <button v-show="estoqueBanana <= 6" @click="removerItem">-</button>
+        <button v-show="estoqueBanana" @click="adicionarItem">+</button>
+        <button v-show="carrinho" @click="removerItem">-</button>
         <p>Carrinho: {{carrinho}}</p>
+        <p v-show="estoqueBanana == 0">Não temos mais Banana em estoque</p>
     </div>
     <script>
         const vm = new Vue({
